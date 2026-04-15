@@ -51,7 +51,7 @@ A web-based Indent Management System developed using **PHP and MySQL** that allo
 
 ## 📸 Screenshots
 // User Side
-<img width="1919" height="911" alt="Screenshot 2024-02-29 065144" src="https://github.com/user-attachments/assets/8dcb21a4-757b-4e38-9553-4fceb45035d7" />
+<img width="1000" height="911" alt="Screenshot 2024-02-29 065144" src="https://github.com/user-attachments/assets/8dcb21a4-757b-4e38-9553-4fceb45035d7" />
 <img width="1920" height="915" alt="Screenshot 2024-02-29 070224" src="https://github.com/user-attachments/assets/2e6045d4-3a69-44dc-9684-3d6b3e087922" />
 <img width="1920" height="911" alt="Screenshot 2024-02-29 070051" src="https://github.com/user-attachments/assets/c51246e6-dbf9-4ebb-bd3d-66ab448f4952" />
 <img width="1920" height="912" alt="Screenshot 2024-02-29 070031" src="https://github.com/user-attachments/assets/a1302884-c453-457c-a3f6-3a48ab0ea790" />
@@ -66,7 +66,7 @@ A web-based Indent Management System developed using **PHP and MySQL** that allo
 <img width="1919" height="884" alt="Screenshot 2024-05-02 081651" src="https://github.com/user-attachments/assets/63ec67e7-b871-4fc4-9f96-af8b3ae4e23a" />
 
 //Database Layout
-<img width="796" height="528" alt="Screenshot 2024-02-29 080549" src="https://github.com/user-attachments/assets/4f6c8d0f-ca33-4f83-a193-df1fa364b99f" />
+<img width="1920" height="528" alt="Screenshot 2024-02-29 080549" src="https://github.com/user-attachments/assets/4f6c8d0f-ca33-4f83-a193-df1fa364b99f" />
 
 ---
 
