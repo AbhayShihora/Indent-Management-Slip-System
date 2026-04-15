@@ -52,7 +52,7 @@ A web-based Indent Management System developed using **PHP and MySQL** that allo
 ## 📸 Screenshots
 // User Side
 <img width="500" height="500" alt="Screenshot 2024-02-29 065144" src="https://github.com/user-attachments/assets/8dcb21a4-757b-4e38-9553-4fceb45035d7" />
-<img width="1920" height="915" alt="Screenshot 2024-02-29 070224" src="https://github.com/user-attachments/assets/2e6045d4-3a69-44dc-9684-3d6b3e087922" />
+<img width="500" height="500" alt="Screenshot 2024-02-29 070224" src="https://github.com/user-attachments/assets/2e6045d4-3a69-44dc-9684-3d6b3e087922" />
 <img width="1920" height="911" alt="Screenshot 2024-02-29 070051" src="https://github.com/user-attachments/assets/c51246e6-dbf9-4ebb-bd3d-66ab448f4952" />
 <img width="1920" height="912" alt="Screenshot 2024-02-29 070031" src="https://github.com/user-attachments/assets/a1302884-c453-457c-a3f6-3a48ab0ea790" />
 <img width="1920" height="910" alt="Screenshot 2024-02-29 070017" src="https://github.com/user-attachments/assets/18757f32-a018-45b2-b648-1622c450f273" />
