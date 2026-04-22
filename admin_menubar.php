@@ -1,76 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-        }
-        .container{
-            
-            /* color:white; */
-            font-size:20px;
-            width:100%;
-            height:100%;
-        }
-        #comp{
-            background-color: #83041e; /*powderblue*/
-            height:55px; 
-            padding-top: 20px;
-            padding-left: 20px;   
-        }
-        #heading{
-            padding-left:30px;
-        }
-        #logoa{
-            padding-left:20px;
-            padding-top: 5px;
-            padding-right: 12px;
-            width:15px;
-            height:15px;
-        }
-        #pages{
-            padding-top: 2%;
-            height:30px;
-        }
-        a{
-            color:#D3D3D3;
-            text-decoration:none;
-        }
-        span{
-            color:white;
-            text-decoration:none;
-        }
-        #sub1{
-            padding-top: 2%;
-            height:30px;
-            padding-left: 15%;
-        }
-        #sub1:hover{
-            background-color: #000000;
-            color:powderblue;
-            text-decoration:none;
-        }
-        
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background: linear-gradient(180deg, #1f1c2c, #928dab);
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+.sidebar h3 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* MENU */
+.menu {
+    flex: 1;
+}
+
+.menu-item {
+    padding: 12px 20px;
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.menu-item:hover {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    padding-left: 30px;
+}
+
+.menu-item i {
+    margin-right: 10px;
+}
+
+/* 🔥 BOTTOM USER SECTION */
+.sidebar-footer {
+    padding: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+}
+
+.logout-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 6px 12px;
+    background: #dc3545;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background: #bb2d3b;
+}
+
+/* CONTENT */
+.content {
+    margin-left: 100px; /* FIXED */
+    padding: 20px;
+}
+</style>
 </head>
-<body bgcolor=#ab1b1b> <!--#11112f-->
-    <div class="container">
-        <div id="comp">
-            <span id=heading><a href="#"><font color=white>🏠 XYZ</font></a></span>
-        </div><br>
-        <div id=pages>
-            <span><a href="#">📁 Indent</a> </span>
-        </div>
-        <div id=sub1>
-            <a href="Pending.php" target=item>📂  Pending Indent</a>
-        </div>
-        <div id=sub1>
-            <a href="Accept.php" target=item>📂 Accepted Indent</a>
-        </div>
-        <div id=sub1>
-            <a href="NoAccept.php" target=item>📂 Not Accepted Indent</a>
-        </div>
+
+<body>
+
+<?php
+session_start();
+$admin = $_SESSION['admin'] ?? "Admin";
+?>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <h3>🏠 XYZ Admin</h3>
+
+    <div class="menu">
+
+        <a href="#" class="menu-item">
+            <i class="fas fa-folder"></i> Indent
+        </a>
+
+        <a href="Pending.php" class="menu-item" target="item">
+            <i class="fas fa-clock"></i> Pending Indent
+        </a>
+
+        <a href="Accept.php" class="menu-item" target="item">
+            <i class="fas fa-check-circle"></i> Accepted Indent
+        </a>
+
+        <a href="NoAccept.php" class="menu-item" target="item">
+            <i class="fas fa-times-circle"></i> Not Accepted
+        </a>
+
     </div>
+
+    <!-- 🔥 ADMIN NAME + LOGOUT -->
+    <div class="sidebar-footer">
+        <div>👤 <strong><?php echo $admin; ?></strong></div>
+        <a href="admin_login.php" class="logout-btn">Logout</a>
+    </div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+    <h2>Welcome to Admin Dashboard</h2>
+    <p>Select an option from sidebar</p>
+</div>
+
 </body>
 </html>

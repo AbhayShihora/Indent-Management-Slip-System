@@ -1,157 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Indent Status</title>
-    <style>*{
-            padding: 0;
-            margin: 0;
-        }
-        body{
-            background-color: papayawhip;
-            min-height: 100vh;
-            width: 100%;
-            background-size: cover;
-            background-position: center;
-            color: #ffffff;
-        }
-         .heading{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .heading a{
-            text-decoration: none;
-            color: green;
-        }
-        .heading a:hover{
-            color: blue;
-        }
-        .hade h1{
-            font-size: 3em;
-            letter-spacing: 5px;
-            font-weight: bold;
-            color: papayawhip;
-            align-items: center;
-            text-align: center;
-            -webkit-box-reflect: below 1px linear-gradient(transparent,#0004);
-            animation: animate 5s linear infinite;
-            line-height: 0.7em;
-        }
-        .th{
-            margin-top:1rem;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 1rem;
-            background-color: #191c24;
-            height: auto;
-            font-size:1.5rem;
-            width:60%;
-            margin-left:20%;
-        }
-        .th div{
-            width: 170px;
-            height: auto;
-        }
-        .contain{
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 1rem;
-            background-color: lightgray;
-            color: #000;
-            width:60%;
-            height:auto;
-            transition: ease .5s;
-            margin-left:20%;
-        }
-        .contain:hover{
-            background-color: powderblue;
-        }
-        .contain div{
-            width: 170px;
-            height: auto;
-            font-size: 1.5rem;
-        }.header1 h1{
-            background-color:  #83041e;/*powderblue;*/ 
-            height:55px; 
-            width=100%; 
-            padding-top:20px; 
-            text-align: center;
-            color:red;
-        }
-        div button{
-            font-size:1.3rem;
-            margin-top:7px;
-            border-radius:7px;
-            border: radius 2px;
-        }
-        div button:hover{
-            background-color:papayawhip;
-            transition: ease .5s;
-        }
-        a{
-            text-decoration: none;
-        }
-        .b1{
-            border-radius:10px;
-            border:none;
-            padding:5px;
-            margin-bottom:7px;
-        }
-        
-    </style> 
-</head>
-<body><div class="header1">
-        <H1><b><i>Not Accepted</i></b></H1>
-    </div>
-    <form action="Status1.php" method="POST">
-    
-    <div class="container">
-                    <div class="th">
-                        <div>Employee Number</div>
-                        <div>Item Name</div>
-                        <div>Required on Date</div>
-                        <div>Your status</div>
-                        <div>Action</div>
-                    </div>
-                
-        <?php                                                                                          
-            session_start();
-            //$un=$_SESSION['mo'];
-            $con=mysqli_connect('localhost','root','',"project");
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not Accepted Indent</title>
 
-            $select="select * from item1 where status='Not Accept' order by id desc"; 
-            // where mo='$un'";
-            $result = mysqli_query($con, $select);
-            if ($result) {
-                while ($row = mysqli_fetch_array($result)){
-                    $id=$row['id'];
-                    ?> 
-                <div class="contain">
-                        <div><?php echo $row['1']; ?></div>
-                        <div><?php echo $row['6']; ?></div>
-                        <div><?php echo $row['10']; ?></div>
-                        <div><?php echo $row['13']; ?></div>
-                        <div>
-                            <form action="Status1.php" method="get">
-                                <button class="b1" name="submit" type="submit"><a href="NoAccept_full.php? selectid=<?php echo $id;?>">see more</a></button>
-                            </form>
-                        </div>
-                </div>
-        
-                            <?php
-                }
-            }
-            
-            ?>
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f4f6f9;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* HEADER */
+.header1 h1{
+    background:#dc3545;
+    color:white;
+    padding:15px;
+    text-align:center;
+}
+
+/* TABLE HEADER */
+.th{
+    display:flex;
+    width:80%;
+    margin:20px auto 10px;
+    padding:12px;
+    background:#343a40;
+    color:white;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* DATA ROW */
+.contain{
+    display:flex;
+    width:80%;
+    margin:10px auto;
+    padding:12px;
+    background:white;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.contain:hover{
+    background:#eef4ff;
+}
+
+/* COLUMNS */
+.th div,
+.contain div{
+    flex:1;
+    text-align:center;
+}
+
+/* BUTTON */
+.b1{
+    display:inline-block;
+    background:#0d6efd;
+    color:white;
+    padding:6px 14px;
+    border-radius:6px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.b1:hover{
+    background:#084298;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header1">
+    <h1>Not Accepted</h1>
+</div>
+
+<div class="container">
+
+<!-- HEADER ROW -->
+<div class="th">
+    <div>Employee No</div>
+    <div>Item Name</div>
+    <div>Required Date</div>
+    <div>Status</div>
+    <div>Action</div>
+</div>
+
+<?php
+session_start();
+$con = mysqli_connect('localhost','root','','project');
+
+$select = "SELECT * FROM item1 WHERE status='Not Accept' ORDER BY id DESC";
+$result = mysqli_query($con, $select);
+
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $id = $row['id'];
+?>
+
+<!-- DATA ROW -->
+<div class="contain">
+    <div><?php echo $row['empno']; ?></div>
+    <div><?php echo $row['iname']; ?></div>
+    <div><?php echo $row['rdate']; ?></div>
+    <div><?php echo $row['status']; ?></div>
+
+    <div>
+        <a href="NoAccept_full.php?selectid=<?php echo $id;?>" class="b1">
+            View
+        </a>
     </div>
-    </form>
+</div>
+
+<?php
+    }
+}
+?>
+
+</div>
+
 </body>
 </html>

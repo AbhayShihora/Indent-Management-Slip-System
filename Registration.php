@@ -1,209 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Login</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Signup</title>
 
 <style>
- 
-    #empno{
-        margin-top:2%;
-        color:yellow;
-    }
-    .hover{
-        zoom:170%;
-        size: 15px;
-        border: 2px double rgb(63, 175, 158);
-        border-radius: 2px;
-        font-family:'Courier New', Courier, monospace;
-    }
-    /* .hover:hover{
-        border-radius: 5px;
-        border: 4px double ;
-        zoom:180%;
-        color: rgb(190, 168, 86);
-    } */
-    #deno{
-        border: none;
-        width:4.5%;
-        font-size: 0.78rem;
-        font-family:'Courier New', Courier, monospace;
-    }
-    #dno{
-        background-color: white ;
-        zoom:160%;
-        font-size:0.95rem;
-    }
-    /* #dno:hover{
-        zoom:174%;
-        border: 4px double;
-        border-radius: 5px;
-        color:rgb(190, 168, 86);
-        font-family:'Courier New', Courier, monospace;
-    }   */
-    #rbtn{
-        margin-left:20px;
-    }
-    .hoverbtn{
-        zoom:170%;
-        color:green;
-        font:20px; 
-    }
-    /* .hoverbtn:hover{
-        zoom:200%;
-        background-color:green;
-        color:yellow;
-        font:20px;
-        border:2px solid;
-        border-radius: 5px;
-    } */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#f4f6f9;
+    font-family:'Segoe UI', sans-serif;
+}
+
+/* HEADER */
+.header{
+    background:#0d6efd;
+    color:white;
+    padding:15px;
+    text-align:center;
+    font-size:22px;
+}
+
+/* FORM CARD */
+.container{
+    max-width:500px;
+    margin:40px auto;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+}
+
+/* INPUT */
+.input-group{
+    margin-bottom:15px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:5px;
+    color:#555;
+    font-weight:500;
+}
+
+.input-group input,
+.input-group select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+
+/* BUTTONS */
+.btn-group{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+}
+
+.btn{
+    flex:1;
+    padding:10px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    color:white;
+}
+
+.btn-submit{ background:#198754; }
+.btn-reset{ background:#6c757d; }
+
+.btn:hover{ opacity:0.85; }
+
+/* EXTRA BUTTON */
+.btn-login{
+    display:block;
+    text-align:center;
+    margin-top:15px;
+    padding:10px;
+    border-radius:20px;
+    border:1px solid #0d6efd;
+    color:#0d6efd;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn-login:hover{
+    background:#0d6efd;
+    color:white;
+}
 </style>
 </head>
-<body align=center>
-    <p>
-        <h1>Employee Sign up Form</h1>
-    </p>
-    <div class="container">
-    <form method="POST" name="form">
-    <br><div id="empno">
-            <input type="Number" name="empno" placeholder="Employee Number" required=required class="hover">
-        </div><br>
-        <div>
-            <input type="Text" name="ename" placeholder="Employee Name" class="hover">
-        </div><br>
-        <div>
-            <input type="Number" name="mno" placeholder="Mobile Number" class="hover">
-        </div><br>
-        <div>
-            <input type="Text" name="email" placeholder="Employee E-mail" class="hover">
-        </div><br>
-        <div>
-            <span id="dno" class="hover">Department No:
-            <select name="deptno" id=deno>
-                    <option>10</option>
-                    <option>20</option>
-                    <option>30</option>
-                    <option>40</option>
-            </select></span>
-        </div><br>
-        <div>
-            <input type="password" name="psw" placeholder="Password" class="hover">
-        </div><br>
-        <div>
-            <input type="Submit" name="Signup" value="Sign up" class="hoverbtn">
-            <input type=reset name=reset value=Reset id=rbtn class="hoverbtn">
-        </div><br>
-    </form>
-    </div>
 
+<body>
+
+<div class="header">Employee Signup</div>
+
+<div class="container">
+<div class="card">
+
+<form method="POST">
+
+<div class="input-group">
+    <label>Employee Number</label>
+    <input type="number" name="empno" required>
+</div>
+
+<div class="input-group">
+    <label>Employee Name</label>
+    <input type="text" name="ename" required>
+</div>
+
+<div class="input-group">
+    <label>Mobile Number</label>
+    <input type="number" name="mno" required>
+</div>
+
+<div class="input-group">
+    <label>Email</label>
+    <input type="email" name="email" required>
+</div>
+
+<div class="input-group">
+    <label>Department</label>
+    <select name="deptno">
+        <option value="10">Accounting</option>
+        <option value="20">Sales</option>
+        <option value="30">Marketing</option>
+        <option value="40">Research</option>
+    </select>
+</div>
+
+<!-- Password + Show Toggle -->
+<div class="input-group">
+    <label>Password</label>
+    <div style="display:flex;">
+        <input type="password" name="psw" id="password" required style="flex:1;">
+        <button type="button" onclick="togglePassword()" style="margin-left:5px;">👁️</button>
+    </div>
+</div>
+
+<div class="btn-group">
+    <button type="submit" name="Signup" class="btn btn-submit">Sign Up</button>
+    <button type="reset" class="btn btn-reset">Reset</button>
+</div>
+
+<!-- LOGIN BUTTON -->
+<a href="login.php" class="btn-login">
+    Already have an account? Login
+</a>
+
+</form>
+
+</div>
+</div>
+
+<script>
+function togglePassword(){
+    let p = document.getElementById("password");
+    p.type = (p.type === "password") ? "text" : "password";
+}
+</script>
 
 <?php
-    $con=mysqli_connect("localhost","root","","project");
-    
-    if($con)
+$con=mysqli_connect("localhost","root","","project");
+
+if($con && isset($_POST['Signup']))
+{
+    $empno=$_POST['empno'];
+    $ename=$_POST['ename'];
+    $mo=$_POST['mno'];
+    $email=$_POST['email'];
+    $deptno=$_POST['deptno'];
+    $psw=$_POST['psw'];
+
+    if(strlen($mo)==10 && strlen($empno)==4)
     {
-        if(isset($_POST['Signup']))
+        if(preg_match("/^[A-Za-z ]+$/",$ename))
         {
-            $empno=$_POST['empno'];
-            $ename=$_POST['ename'];
-            $mo=$_POST['mno'];
-            $email=$_POST['email'];
-            $deptno=$_POST['deptno'];
-            $psw=$_POST['psw'];
-
-                if(strlen($mo)==10)
+            if(filter_var($email, FILTER_VALIDATE_EMAIL))
+            {
+                if(strlen($psw)>=8 && strlen($psw)<=16)
                 {
-                    if(strlen($empno)==4)
-                    {
-                        $cnt=0;$cnts=0;
-                        $u=strtoupper($ename);
-                        $n1=strlen($ename);
+                    $insert="INSERT INTO emp (empno,ename,mo,email,deptno,psw)
+                             VALUES('$empno','$ename','$mo','$email','$deptno','$psw')";
+                    mysqli_query($con,$insert);
 
-                        for($i=0;$i<=$n1;$i++)
-                        {
-                            $b=substr($u,$i,1);
-                            if($b>='A' && $b<='Z')
-                                $cnt++;
-                            if($b==" ")
-                                $cnts++;
-                        }
-                        if(($u!="") && ($n1==$cnt+$cnts))
-                        {
-                            $cnta=0;
-                            $cntd=0;
-                            for($i=0;$i<strlen($email);$i++)
-                            {
-                                $b=substr($email,$i,1);
-                                if($b==".")
-                                    $cntd++;
-                                if($b=="@")
-                                    $cnta++;
-                            }
-                        
-                            if ($cnta==1 && $cntd==1) 
-                            {
-                                if(strlen($psw)>=8 && strlen($psw)<=16)
-                                {                   
-                                    //$_SESSION['signup'] =true;
-                                    //$_SESSION['empno']=$empno;
-                                    $insert="insert into emp (empno,ename,mo,email,deptno,psw) values('$empno','$ename','$mo','$email','$deptno','$psw')";
-                                    $resi=mysqli_query($con,$insert);
-                                    ?>
-                                        <script>
-                                            alert("Registration Successfully Completed 👍")
-                                        </script>
-                                    <?php
-                                    header('location:Home.php');
-                                } 
-                                else 
-                                {
-                                    ?>
-                                    <script>
-                                        alert("Password length is Not Between 1 to 16");
-                                    </script>
-                                    <?php
-                                }                            
-                            }
-                            else 
-                            {
-                                ?>
-                                <script>
-                                    alert("NOT a valid email address ==> Also Contain . OR @");
-                                </script>
-                                <?php
-                            }
-                        }
-                        else
-                        {
-                            ?>
-                            <script>
-                                alert("incorrect Employe name ==>  Only Allow Alphabat");
-                            </script>
-                            <?php
-                        }
-                    }
-                    else
-                    {
-                        ?>
-                        <script>
-                            alert("Employee Number is Invalid ==> Only Allow 4 Digit Number!!");
-                        </script>
-                        <?php
-                    }
+                    echo "<script>alert('Registration Successful 👍');</script>";
+                    header('Location: login.php');
                 }
-                else
-                {
-                    ?>
-                    <script>
-                        alert("Mobile Number is Invalid ==> Only Allow 10 Digit Number!!");
-                    </script>               
-                    <?php
+                else{
+                    echo "<script>alert('Password must be 8-16 characters');</script>";
                 }
+            }
+            else{
+                echo "<script>alert('Invalid Email');</script>";
+            }
         }
-      
+        else{
+            echo "<script>alert('Name should contain only alphabets');</script>";
+        }
     }
-    
+    else{
+        echo "<script>alert('Invalid Employee No or Mobile No');</script>";
+    }
+}
 ?>
+
 </body>
 </html>

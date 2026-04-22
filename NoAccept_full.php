@@ -1,141 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Indent Status</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-        }
-        .dmain{
-            margin-left: 15%;
-            margin-top:5%;
-            font-size : 20px;
-        }
-        .header1 h1{
-            background-color:  #83041e;/*powderblue;*/ 
-            height:55px; 
-            width=100%; 
-            padding-top:20px; 
-            text-align: center;
-            color:red;
-        }
-        .sub{
-            padding-left:27%;
-            padding-top:5%;
-            display: inline-block;
-        }
-        .sub tr{
-            line-height: 3rem;
-        }
-        .sub td{
-            width:40%;
-            border-radius: 15px;
-        }
-        .sub p{
-            text-align:left;
-        }
-        table{
-            border: 2px solid #000;
-            border-radius: 15px;
-            box-shadow: 20px 15px 15px 10px lightgray;
-        }
-        .status p{
-            background-color: yellow;
-            color:black;
-            text-align:center;
-            border-radius: 10px;
-        }
-        .bu{
-            width:90px;
-            height:30px;
-            margin-left:28%;
-            border:0;
-            border-radius: 8px;
-            background-color:powderblue;
-        }
-        .bd{
-            width:90px;
-            height:30px;
-            margin-left:8%;
-            border:0;
-            border-radius: 8px;
-            background-color:powderblue;
-        }
-    </style>
-</head>
-<body>
-        <div class=header1>
-        <H1><b><i>Not Accepted</i></b></H1>
-        </div>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f6f9;
+}
 
-            <?php
-            //$un=$_SESSION['mo'];
-            $con=mysqli_connect('localhost','root','',"project");
-            session_start();
-            
-            $id =$_GET['selectid'];
-            $select="select * from item1 where id=$id"; 
-            // where mo='$un'";
-            $result = mysqli_query($con, $select);
-            if ($result) {
-                while ($row = mysqli_fetch_array($result)){
-                    ?> 
-                        <div class="sub">
-                                                <table cellspacing=10px>
-                                                    <tr>
-                                                        <td><p>Employee Number :
-                                                            <?php $empno=$row['empno']; echo "$empno"; ?></p></td>
-                                                        <td><p>Employee Name :
-                                                            <?php $ename=$row['ename']; echo "$ename"; ?></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p>Department Number : 
-                                                            <?php $deptno=$row['deptno']; echo " $deptno"; ?></p></td>
-                                                        <td><p>Department Name : 
-                                                            <?php $dname=$row['dname']; echo "$dname"; ?></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p>Mobile Number :
-                                                            <?php $purpose=$row['mo']; echo "$purpose"; ?></p></td>
-                                                        <td><p>Rquire on Date  :
-                                                            <?php $pursup=$row['rdate']; echo "$pursup"; ?></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p>Item Name :
-                                                            <?php $iname=$row['iname']; echo "$iname"; ?></p></td>
-                                                        <td><p>Rate :
-                                                            <?php $rate=$row['rate']; echo "$rate"; ?></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p>Quentity :
-                                                            <?php $qnt=$row['quentity']; echo "$qnt"; ?></p></td>
-                                                        <td><p>Unit of Measurement :
-                                                            <?php $uom=$row['uom']; echo "$uom"; ?></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p>Purpose :
-                                                            <?php $purpose=$row['purpose']; echo "$purpose"; ?></p></td>
-                                                        <td><p>prefferd Supplier :
-                                                            <?php $pursup=$row['pursupplier']; echo "$pursup"; ?></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan=2 align=center class="status"> <?php $status=$row['status'];
-                                                                ?><p>Status :<b><font color=Red> <?php echo "Not Accepted"; ?> </font></b></p>
-                                                        </td>
-                                                    </tr>   
-                                                    <tr>
-                                                        <td colspan=2>
-                                                            <a href="Accept_Code.php?selectid=<?php echo $id;?>"><button name="update" class=bu>Accept</button></a>  
-                                                        </td>
-                                                    </tr>
-                                                </table>       
-                            </div>
-                    <?php
-                }
-            }
-            ?>
-</body>
-</html>
+/* CONTENT AREA */
+.content {
+    margin-left: 30px;
+    padding: 20px;
+}
+
+/* HEADER */
+.header1 h1 {
+    background-color: #dc3545;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+}
+
+/* CARD */
+.card-box {
+    max-width: 800px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* ROW FIX (IMPORTANT) */
+.row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+/* COLUMN FIX */
+.col-md-6 {
+    flex: 1;
+}
+
+/* LABEL + VALUE */
+.label {
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+.value {
+    color: #222;
+    background: #f8f9fa;
+    padding: 8px 10px;
+    border-radius: 6px;
+}
+
+/* STATUS */
+.status-badge {
+    background: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+/* BUTTON */
+.btn-custom {
+    border-radius: 20px;
+    padding: 8px 20px;
+}
+.btn-group-custom {
+    display: flex;
+    justify-content: center;
+    gap: 15px;   /* space between buttons */
+    margin-top: 20px;
+}
+
+</style>
+
+<div class="content">
+
+<div class="header1">
+    <h1>Not Accepted</h1>
+</div>
+
+<?php
+$con=mysqli_connect('localhost','root','','project');
+session_start();
+
+$id = $_GET['selectid'];
+$select="SELECT * FROM item1 WHERE id=$id"; 
+$result = mysqli_query($con, $select);
+
+if ($row = mysqli_fetch_assoc($result)) {
+?>
+
+<div class="card-box">
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <div class="label">Employee No</div>
+        <div class="value"><?php echo $row['empno']; ?></div>
+    </div>
+    <div class="col-md-6">
+        <div class="label">Employee Name</div>
+        <div class="value"><?php echo $row['ename']; ?></div>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <div class="label">Department No</div>
+        <div class="value"><?php echo $row['deptno']; ?></div>
+    </div>
+    <div class="col-md-6">
+        <div class="label">Department Name</div>
+        <div class="value"><?php echo $row['dname']; ?></div>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <div class="label">Item</div>
+        <div class="value"><?php echo $row['iname']; ?></div>
+    </div>
+    <div class="col-md-6">
+        <div class="label">Rate</div>
+        <div class="value">₹ <?php echo $row['rate']; ?></div>
+    </div>
+</div>
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <div class="label">Quantity</div>
+        <div class="value"><?php echo $row['quentity']; ?></div>
+    </div>
+    <div class="col-md-6">
+        <div class="label">UOM</div>
+        <div class="value"><?php echo $row['uom']; ?></div>
+    </div>
+</div>
+
+<div class="mb-3">
+    <div class="label">Purpose</div>
+    <div class="value"><?php echo $row['purpose']; ?></div>
+</div>
+
+<div class="text-center mt-4">
+    <span class="status-badge">Not Accepted</span>
+</div>
+
+<div class="btn-group-custom">
+    <a href="Accept_Code.php?selectid=<?php echo $id;?>">
+        <button class="btn btn-success btn-custom">Accept</button>
+    </a>
+
+    <a href="Status1.php">
+        <button class="btn btn-secondary btn-custom">Back</button>
+    </a>
+</div>
+
+</div>
+
+<?php } ?>
+
+</div>
